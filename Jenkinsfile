@@ -48,7 +48,7 @@ pipeline {
             steps {
                 sshagent(['my-ssh-key']) {
                     sh """
-                        ssh -o StrictHostKeyChecking=no vetrax@192.168.4.50 '
+                        ssh -o StrictHostKeyChecking=no taye@192.168.42.128 '
                             docker pull taye97/pythonapp:${TAG} &&
                             docker stop pythonapp || true &&
                             docker rm pythonapp || true &&
