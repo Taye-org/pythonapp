@@ -1,27 +1,14 @@
-FROM python:3.10
- 
-WORKDIR /app
- 
-COPY requirements.txt .
- 
-RUN pip install --no-cache-dir -r requirements.txt
- 
-COPY . .
- 
-CMD ["python", "app.py"]
- 
-from flask import Flask, render_template
- 
-app = Flask(__name__)
- 
-@app.route('/')
-
-def home():
-
-    return render_template("index.html")
- 
-if __name__ == '__main__':
-
-    app.run(debug=True)
-
- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Welcome</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+<div class="container">
+<h1>Hello, Taye! 👋</h1>
+<p>Welcome to your beautiful Flask app.</p>
+</div>
+</body>
+</html>
