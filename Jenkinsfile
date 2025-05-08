@@ -52,7 +52,7 @@ pipeline {
                             docker pull taye97/pythonapp:${TAG} &&
                             docker stop pythonapp || true &&
                             docker rm pythonapp || true &&
-                            docker run -d --name pythonapp -p 80:5000 taye97/pythonapp:${TAG}
+                            docker run -d --name pythonapp -p 8085:5000 taye97/pythonapp:${TAG}
                         '
                     """
                 }
