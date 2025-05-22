@@ -1,5 +1,5 @@
  ## Jenkins CI/CD Pipeline with Docker, Snyk & GitHub Integration
-This project demonstrates how to build a secure CI/CD pipeline using Jenkins, Docker, Snyk, and GitHub. The pipeline automates building, scanning, pushing, and deploying a Docker image containing a simple HTML app.
+This project demonstrates how to build a secure CI/CD pipeline using Jenkins, Docker, Snyk, and GitHub. The pipeline automates building, scanning, pushing, and deploying a Docker image containing a simple python flask app.
 
 # Project Objectives
 ✅ Set up Jenkins and connect it to a GitHub repository
@@ -17,15 +17,12 @@ This project demonstrates how to build a secure CI/CD pipeline using Jenkins, Do
 ✅ Securely store and use credentials and avoid exposing secrets
 
 # Project Structure
-cpp
-Copy
-Edit
-.
-├── Dockerfile
-├── Jenkinsfile
-├── index.html  (unzipped static web page)
-└── README.md
-⚙️ Jenkinsfile Pipeline Stages
+
+- ├── Dockerfile
+- ├── Jenkinsfile
+- ├── index.html  
+- └── README.md
+# Jenkinsfile Pipeline Stages
 Build: Create a Docker image from the Dockerfile
 
 Scan: Use Snyk to identify vulnerabilities in the image
@@ -34,7 +31,7 @@ Push: Upload the scanned (clean) image to Docker Hub
 
 Deploy: SSH into a VM and deploy the container there
 
-🛡️ Snyk Security Integration
+# Snyk Security Integration
 1. Create a Snyk Account
 Sign in and get your SNYK_TOKEN under Account Settings → API Token.
 
@@ -54,17 +51,12 @@ ID: SNYK_TOKEN
 Secret: (Paste your token)
 
 4. Use Snyk in Jenkinsfile
-groovy
-Copy
-Edit
 withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
     sh 'snyk auth $SNYK_TOKEN'
     sh 'snyk container test your-image-name'
 }
 🐳 Dockerfile (Sample)
 Dockerfile
-Copy
-Edit
 FROM nginx:alpine
 COPY index.html /usr/share/nginx/html/index.html
 🚀 Deployment Notes
