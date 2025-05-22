@@ -55,11 +55,8 @@ withCredentials([string(credentialsId: 'SNYK_TOKEN', variable: 'SNYK_TOKEN')]) {
     sh 'snyk auth $SNYK_TOKEN'
     sh 'snyk container test your-image-name'
 }
-🐳 Dockerfile (Sample)
-Dockerfile
-FROM nginx:alpine
-COPY index.html /usr/share/nginx/html/index.html
-🚀 Deployment Notes
+
+# Deployment Notes
 Used docker-compose for local Jenkins setup
 
 Ngrok was used in earlier setups to expose Jenkins publicly
@@ -68,7 +65,7 @@ SSH keys were securely managed (not hardcoded in Jenkins)
 
 VM deployment done via remote SSH and docker run
 
-🔗 Related Tools
+# Related Tools
 Jenkins
 
 Docker
